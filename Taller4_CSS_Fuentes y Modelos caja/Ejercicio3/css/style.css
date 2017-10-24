@@ -1,0 +1,17 @@
+body {
+    
+    background-image: url('http://www.starwoodhotels.com/pub/media/296/she296re.120396_lg.jpg');
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
+#titulo-sitio {
+	font-size: 4em;
+	color: #d39a0a;
+	text-shadow: 3px 3px #bc8609;
+}
+
+.receta {
+	border: 1pt solid #cbccc1;
+	border-radius: 2em/6em;
+}

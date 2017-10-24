@@ -1,0 +1,85 @@
+header > h1 {
+	text-align: center;
+	/*background-color: #8ec400;*/
+}
+
+body {
+	margin: 0% 25% 0%;
+}
+
+header {
+	background-color: #866206;
+}
+
+section#section > div {
+	border: 1pt solid #cbccc1;
+	margin: 5px;
+	padding: 0px 15px 5px 15px;
+}
+
+div#info img {
+	margin: 5px;
+	width: 20%;
+	padding: 5px;
+}
+
+div#info p {
+	float:right;
+	margin: 5px;
+	width:70%;
+}
+
+div#datosPersonales div:first-child {
+	text-align: center;
+}
+
+/*.institucion {
+	float: right;
+}*/
+/*EDUCACIÓN*/
+
+.educacionBlock {
+	float: right;
+	width: 59%;
+}
+
+#periodo {
+	font-style: italic;
+}
+
+#educacion img{
+	/*border: 1pt solid #cbccc1;*/
+	width: 35%;
+	padding: 5px;
+}
+/**/
+
+div.habilidad > div {
+	display: inline-block;
+	border-radius: 2em/6em;
+	padding: 5pt;
+}
+
+div.habilidad div:first-child {
+	background-color: #8ec4ba;
+	/*padding: 0px 5px 0px 5px;*/
+}
+
+div.habilidad div:last-child {
+	box-shadow: inset 3px 3px 2px 1px #ccc;
+	margin: 3px 0px 2px 0px
+}
+
+div.habilidad {
+	margin: 10px;
+}
+
+#habilidadesBlock {
+	text-align:center;
+}
+
+div.habilidad {
+	display: inline-block;
+}
+
+
