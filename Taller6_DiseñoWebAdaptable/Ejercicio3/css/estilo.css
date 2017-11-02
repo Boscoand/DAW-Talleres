@@ -1,0 +1,278 @@
+body {
+	margin: 5% 2% 5%;
+	background-image: url('https://4.bp.blogspot.com/_uVJ-dC5PxKM/S_0SWX8_UWI/AAAAAAAAF8c/qygbdWI8XeA/s1600/platovacio.jpg');
+	background-size: 60%;
+	background-repeat: no-repeat;
+	position: left-top;
+}
+
+div#titulo-sitio{
+	color: #414239;
+	font-size: 4em;
+	text-shadow: 2px 2px #bc8609;
+}
+
+section#contenido div {
+	margin: 5px;
+}
+
+
+span#fotodulce img{
+	width: 45%;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+	position: center;
+	
+}
+
+
+div#foto1 {
+	background-image: url('http://www.ecuavisa.com/sites/default/files/fotos/2013/10/07/encebollado.jpg');
+	opacity: 0.5;
+	position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+div#foto2 {
+	background-image: url('http://guimun.com/fotos/img400_pic3615_producto.jpg_13961.jpg');
+	opacity: 0.5;
+	position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+div#foto3 {
+	background-image: url('http://www.teregalo.com.ec/img/cms/Cangrejo_Criollo_001_600.jpg');
+	opacity: 0.5;
+	position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+div#foto4 {
+	background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/06/5d/71/28/la-antojeria.jpg');
+	opacity: 0.5;
+	position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+
+div#foto5 {
+	background-image: url('https://static.vix.com/es/sites/default/files/imj/elgranchef/C/Cheesecake-de-frutillas-1.jpg');
+	opacity: 0.5;
+	position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+div.info {
+	border-top-style: solid;
+}
+
+div.recetas {
+	display: inline-block;
+	width: 18.5%;
+	border-radius: 0.5em;
+	border: 1pt solid #cbccc1;
+}
+
+div#cabeza {
+	border-bottom-style: solid;;
+	
+}
+
+div.categorias h3{
+	color: #d69f2a;
+}
+
+div.descripciones{
+	margin: 2px;
+}
+
+
+
+div h2{
+	font-variant: small-caps;
+	display: inline-block;
+	width: 120%;
+}
+
+/*div.fotos: hover {
+	opacity: 0.7;
+}*/
+
+/*div#cuerpo1{
+	display: inline-block;
+	width: 100%;
+}*/
+
+img:hover{
+	opacity: 0.7;
+}
+
+section>div>div>div img.pic_encebollado{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
+
+
+section>div>div>div img.pic_costilla{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
+
+section>div>div>div img.pic_cangrejo{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
+
+section>div>div>div img.pic_pescado{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
+
+section>div>div>div img.pic_cheescake{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
+
+div.desarrollo{
+	display: inline-block;
+	width: 45%;
+	margin:10px;
+	text-align: justify;
+	vertical-align: center;
+}
+
+div.cuerpos{
+	border-bottom-style: dotted;
+	border-bottom-color: #e0d2b1;
+	border-bottom-width: 1pt;
+	display: inline-block;
+	width: 100%;
+
+}
+
+section>div>div>div>div.conceptos{
+	position: relative;
+	width: 100%	
+
+}
+
+div.temas{
+	display: inline-block;
+	width: 50%;
+}
+
+div.fotos h2{
+	color: #db990a;
+	text-decoration: underline;
+}
+
+div.fotos h2:hover{
+	color: #edc163;
+	text-decoration: none;
+}
+
+@media only screen and (max-width : 480px) {
+		header {
+    	text-align: center;
+    	font-size: 50%;
+	}
+
+		body{
+			background-position: center top;
+			background-size: 35%;
+
+		}
+		section>div>div.recetas{
+			width: 100%;
+		}
+		section>div>div>div>div.categorias{
+			float: right;
+		}
+
+		section>div>div>div>div.descripciones{
+			display: none;
+		}
+
+		section>div>div>div.fotos{
+			background-position: center;
+		}
+
+		h2 {
+			color: #000000;
+		}
+
+		section>div>div>div>div.conceptos{
+			display: none;
+		}
+
+		section>div>div.cuerpos{
+			width: 45%;
+		}
+
+		section>div>div>div>div.temas>h2{
+			font-size: 12px;
+			margin-top: 0px;
+			
+		}
+
+		section>div>div>div>div.temas{
+			width:100%;
+			margin: 5px;
+			position: relative;
+			top: 2px;
+			left: 30px;
+			
+		}
+
+		
+		section>div>div>div img.pic_encebollado{
+			margin-top: 0px;
+			width: 200%;
+		}
+
+		section>div>div>div img.pic_costilla{
+			margin-top: 0px;
+			width: 200%;
+		}
+
+		section>div>div>div img.pic_cangrejo{
+			margin-top: 0px;
+			width: 200%;
+		}
+
+		section>div>div>div img.pic_pescado{
+			margin-top: 0px;
+			width: 200%;	
+		}
+
+		section>div>div>div img.pic_cheescake{
+			margin-top: 0px;
+			width: 200%;	
+		}
+
+		section>div>div>div>div.titulos h2{
+			color: #000000;
+		}
+		
+
+		/*section>div>div>div audio.audios{
+			display: inline-block;
+			float: right;
+		}*/
+		
+		audio{
+			width: 150px;
+			/*height: 5px;*/
+			
+		}
+}
