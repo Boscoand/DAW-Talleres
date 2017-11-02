@@ -1,0 +1,205 @@
+/*Box Sizing*/
+* {
+    box-sizing: border-box;
+}
+
+/*Todas las imágenes se ajustan al contenedor*/
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*Box Model*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    display: inline-block;
+	vertical-align: middle;
+    /*border: 1px red solid;*/
+
+}
+
+#header {
+	margin-left: 16.66%;
+}
+
+section {
+	margin-left: 16.66%;
+}
+
+#nombresApellidos, #datosPersonales, #educacion, #habilidades {
+	padding: 1em;
+	border: 1px gray solid;
+	margin-top: 1em;
+}
+
+#info-container {
+	padding: 0.5em;
+}
+
+/* MEDIA QUERY */
+/* [321,480]*/
+@media only screen and (max-width : 750px) {
+	[class*="col-"] {
+		width: 100% !important;
+	}
+
+	#header {
+    	display: none;
+	}
+
+	section {
+		margin-top: 10%;
+		margin-left: 0%;
+	}
+
+	#info-container {
+		text-align: center;
+	}
+
+	#cargo, #trabajo {
+		display: none;
+	}
+
+	#nombresApellidos, #datosPersonales, #educacion, #habilidades {
+		background-color: #d4e3fc;
+		border-radius: 1em/1em;
+	}
+
+	#nombresApellidos>div:first-child, #datosPersonales>div:first-child, #educacion>div:first-child, #habilidades>div:first-child {
+		font-weight: bold;		
+	}
+
+	#datosPersonales *{
+		text-align: left;
+	}
+
+	#nombresApellidos {
+		position: relative;
+	}
+
+	#foto {
+		position: relative;
+		border: 1px solid black;
+		width: 50% !important;
+		margin-top: -15%;
+		margin-left: 25%;
+		padding: 1em;
+		background-color: white;
+		z-index: 1;
+		text-align: center;
+	}
+
+	#nombresApellidos>div:first-child {
+		position: absolute;
+		border: 1px solid black;
+		/*display: none;*/
+		left: 30%;
+		right: 30%;
+		top: 50%;
+		bottom: 35%;
+		text-align: center;
+		width: auto !important;
+		padding: 0.30em;
+		background-color: white;
+		opacity: 0.50;
+		z-index: 2;
+		font-size: 1em;
+	}
+
+	#foto>img{
+		border-radius: 100%;
+	}
+
+	#datosPersonales>div:first-child {
+		display: none;
+	}
+
+	#educacion>div:first-child {
+		text-align: center;
+	}
+
+	.materias {
+		text-align: left;
+		font-size: 1em;
+	}
+
+	#educacion-container {
+		width: 50%;
+		display: inline-block;
+		padding: 0.5em;
+	}
+
+	hr {
+		display: none;
+	}
+
+	#habilidades>div:first-child {
+		text-align: center;
+	}
+
+	#habilidadesBlock>div{
+		width: 50% !important;
+		padding: 0.25em;
+	}
+
+	#habilidades-rigth {
+		margin-left: -15%;
+		padding-left: 2em !important;
+		
+	}
+/*
+	header h1 {
+		font-size: 300%;
+	}
+
+	header img, nav, article > div > img, aside  {
+		display: none;
+	}
+
+	section {
+		margin-left: 0%;
+	}
+
+	article {
+		background-color: #e0e0e0;
+	}
+
+	article:hover {
+		background-color: #c0dbea;
+		cursor: pointer;
+	}
+
+	article > div > h1 {
+	    font-size: 1em;
+	    padding-left: 3%;
+	    padding-right: 1%;
+	}
+
+	article > div > h2 {
+		font-size: 1em;
+		border-bottom: none;
+	}
+
+	footer {
+		font-size: .}8em;
+		font-style: italic;
+	}
+
+	article div.cabecera-articulo, article div.contenido-articulo  {
+		height: auto;
+	}*/
+}
+
+

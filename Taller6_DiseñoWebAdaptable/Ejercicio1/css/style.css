@@ -1,0 +1,51 @@
+#header {
+	border: 1px solid black;
+	text-align: center;
+	background-color: brown;
+	padding: 0.5em;
+	font-size: 2em;
+}
+
+#nombresApellidos>div:first-child, #datosPersonales>div:first-child, #educacion>div:first-child, #habilidades>div:first-child {
+	padding-bottom: 0.5em;
+	font-size: 1.5em;
+}
+
+.institucion {
+	font-weight: bold;
+}
+
+.periodo {
+	font-style: italic;
+	padding-bottom: 0.5em;
+}
+
+#habilidadesBlock>div{
+	text-align: center;
+}
+
+#habilidadesBlock>div>div {
+	border: 1px solid;
+	border-radius: 1em/1em;
+	border-color: transparent;
+	padding: 0.5em;
+	display: inline-block;
+	font-size: 0.85em;
+}
+
+#habilidades-rigth {
+	position: relative;
+	z-index: 1;
+	margin-left: -23%;
+	padding-left: 2em !important;
+	background: #E1DDDD;
+
+	
+}
+
+#habilidades-left {
+	position: relative;
+	z-index: 2;
+	background: #141B81;
+	color: white;
+}

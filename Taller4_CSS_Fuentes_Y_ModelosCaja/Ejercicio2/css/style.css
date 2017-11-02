@@ -1,0 +1,85 @@
+body {
+	margin: 0% 10% 0%;
+}
+
+header h1 {
+	font-family: Anton;
+	color: #414239;
+	font-size: 4em;
+}
+
+body>div {
+	text-align: center;
+	border-width: 1px; 
+	border-color: #d7d8cb;
+	border-style: dotted;
+	padding: 10px;
+	margin: 10px;
+}
+
+.titulo {
+	text-align: justify;
+	font-family: Lobster;
+	color: #9e0947;
+	font-size: 2.5em;
+	margin-bottom: 0px;
+}
+
+.peliculas {
+	display: inline-block;
+	text-align: justify;
+	font-family: Verdana;
+}
+
+img{
+	width: 17%;
+	vertical-align: middle;
+}
+
+img:hover {
+	width: 17%;
+	opacity: 0.8;
+	vertical-align: middle;
+}
+
+
+#sinopsis b {
+	font-size: 1em;
+	color: #ce105c;
+}
+
+#sinopsis {
+	font-size: 12px;
+	width: 30%;
+	margin: 10px;
+	vertical-align: middle;
+}
+
+#reparto b {
+	font-size: 1em;
+	color: #ce105c;	
+}
+
+#reparto {
+	font-size: 12px;
+	width: 15%;
+	margin: 10px;
+	vertical-align: middle;
+}
+
+#principal {
+	list-style-image: url('https://goo.gl/6hPSSH');
+	font-weight: bold;
+}
+
+#secundario {
+	list-style-image: url('https://goo.gl/6hPSSH');
+	font-style: italic; 
+
+}
+
+iframe{
+	vertical-align: middle;	
+	/*width: 80%;*/
+}
+
