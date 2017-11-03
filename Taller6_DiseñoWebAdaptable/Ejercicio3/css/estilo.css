@@ -84,7 +84,7 @@ div#cabeza {
 }
 
 div.categorias h3{
-	color: #d69f2a;
+	color: #000000;
 }
 
 div.descripciones{
@@ -195,21 +195,29 @@ div.fotos h2:hover{
 		section>div>div.recetas{
 			width: 100%;
 		}
-		section>div>div>div>div.categorias{
-			float: right;
+		section>div>div>div>div>div> h3{
+			text-align: center;
+
 		}
 
-		section>div>div>div>div.descripciones{
+		section>div>div>div>div>div> p{
+			text-align: center;
+
+		}
+
+		section>div>div>div>div>div.descripciones{
 			display: none;
 		}
 
 		section>div>div>div.fotos{
-			background-position: center;
+			background-position: left;
+			width: 160%;
 		}
 
 		h2 {
 			color: #000000;
 		}
+
 
 		section>div>div>div>div.conceptos{
 			display: none;
@@ -274,5 +282,9 @@ div.fotos h2:hover{
 			width: 150px;
 			/*height: 5px;*/
 			
+		}
+
+		div.info{
+			border-top-style: none;
 		}
 }
