@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta charset="utf-8">
+  
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <!-- Slick. Se usa para hacer slide de imagenes -->
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+</head>
+<body>
+  <div id="app">
+    <v-app>
+
+      <v-toolbar class="cyan darken-4 white--text">
+        <v-toolbar-title class="hidden-xs-only">Sweet &amp; Coffee</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn class="white--text" flat>Nosotros</v-btn>
+          <v-btn class="white--text" flat>Café</v-btn>
+          <v-btn class="white--text" flat>Dulces</v-btn>
+          <v-btn class="white--text" flat>Productos</v-btn>
+          <v-btn class="white--text" flat>Compromiso</v-btn>
+          <v-btn class="white--text" flat>Universidad del Café</v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+
+      <main>
+        
+        <v-container fluid id="container" text-xs-center>
+          <img id="fondo" src="img/fondo.jpg">
+          <div class="wrapper">
+            <div class="carousel">
+              <div v-for="img in imagenes">
+                <img :src="img.url">
+              </div>
+            </div>
+          </div>
+
+            <v-layout> 
+              <v-flex xs3 v-for="i in 4" :key="i" class="px-2 pb-2">
+                <v-card dark>
+                  <img id="imagenContenido" src="s&c.png">
+                </v-card>
+              </v-flex>
+            </v-layout>
+         
+
+        </v-container>
+
+       
+        
+      </main>
+
+      <v-footer class="cyan darken-4 white--text">
+        <div id="footer" class="white--text"></div>
+      </v-footer>
+
+    </v-app>
+  </div>
+ 
+  <!-- JS. Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <!-- JS Slick -->
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').slick({
+        slidesToShow: 6,
+        dots:true,
+        centerMode: true,
+        });
+      });
+  </script>
+
+  <script>
+    new Vue({ 
+
+      el: '#app' ,
+      data() {
+        return {
+          imagenes: [
+            { url: 'img/productos/americano.jpg' },
+            { url: 'img/productos/cafebombon.jpg' },
+            { url: 'img/productos/cafelattecaliente.jpg' },
+            { url: 'img/productos/cafelattefrio.jpg' },
+            { url: 'img/productos/capuccino.jpg' },
+            { url: 'img/productos/capuccinocasa.jpg' },
+            { url: 'img/productos/capuccinofrio.jpg' },
+            { url: 'img/productos/espresso.jpg' },
+            { url: 'img/productos/frappelatte.jpg' },
+            { url: 'img/productos/macchiato.jpg' },
+            { url: 'img/productos/moccachino.jpg' },
+            { url: 'img/productos/oreocookieshake.jpg' },
+          ],
+        }
+      },
+
+    })
+
+  </script>
+
+  <style>
+
+    #container{
+      padding: 0%;
+    }
+    
+    #fondo{
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .wrapper{
+      width:100%;
+      text-align:center;
+    }
+
+    .carousel{
+      height: auto;
+      padding-bottom: 0.7em;
+      margin: 0px auto;
+    }
+
+    .slick-slide{
+      margin:10px;
+    }
+    .slick-slide img{
+      width:100%;
+    }
+    .slick-dots {
+      bottom: 0%;
+    }
+
+    #imagenContenido {
+      width: 50%;
+      border-radius: 1em/1em;
+    }
+
+  </style>
+
+</body>
+</html>
