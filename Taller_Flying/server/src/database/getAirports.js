@@ -1,3 +1,9 @@
+// Importar csv a mongo:
+// mongoimport -d flying -c airports --type csv --file ruta --headerline
+// mongoimport -d flying -c routes --type csv --file ruta --headerline
+// mongoimport -d flying -c airlines --type csv --file ruta --headerline
+
+
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
