@@ -61,7 +61,7 @@
 
 <script>
 // import AuthenticationService from '@/services/AuthenticationService'
-import GetCountries from '@/services/GetCountries'
+// import GetCountries from '@/services/GetCountries'
 export default {
   data () {
     return {
@@ -80,9 +80,9 @@ export default {
       //   password: this.password
       // })
       // this.origin.push(response.data)
-      var response = await GetCountries.countries()
-      this.origen.push(response.data.message)
-      console.log(this.origen)
+      // var response = await GetCountries.cities()
+      // this.origen.push(response.data.message)
+      // console.log(this.origen)
     }
   }
 }
