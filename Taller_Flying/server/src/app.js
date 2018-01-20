@@ -52,16 +52,23 @@ app.get('/getCities', (req, res) => {
 
 })
 
-let data = []
-
 // Ingresar deseos de usuarios
 app.post('/postForm', (req, res) => {
 
-	const {nombre, celular} = req.body
+	airports.postForms(req.body).then(result => {
+		res.end(result)	
+	})
 
-	data.push({"nombre": nombre, "celular": celular})
-	console.log(req.body)
-	res.end("yes")
+})
+
+// Ingresar deseos de usuarios
+app.get('/getForm', (req, res) => {
+
+	airports.getForms().then(result => {
+		res.send(result)	
+	})
+	// const {nombre, celular} = req.body
+
 })
 
 app.get('/getIata', (req, res) => {

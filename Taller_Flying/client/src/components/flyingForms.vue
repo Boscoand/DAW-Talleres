@@ -127,26 +127,15 @@
     </v-layout>
 
     <!-- Escala -->
-    <v-card-text>
-      <v-container>
-        <v-layout>
-          <v-flex xs11 offset-xs1>
-            <v-radio-group v-model="opcionSeleccionada" row>
-              <v-radio
-                v-for="(opcion, i) in opciones"
-                :key="i"
-                :value="opcion"
-                :label="opcion"
-              ></v-radio>
-            </v-radio-group>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-card-text>
+    <v-layout>
+      <v-flex xs10 offset-xs1 pl-4 pt-4>
+        <v-checkbox v-bind:label="`Escala`" v-model="escala"></v-checkbox>
+      </v-flex>
+    </v-layout>    
 
     <v-card-text>
       <div>
-        <v-btn color="primary" v-on:click="obtenerRutas">BUSCAR</v-btn>
+        <v-btn color="primary" v-on:click="guardarRegistro">GUARDAR</v-btn>
       </div>
     </v-card-text>
 
@@ -157,13 +146,16 @@
       class="elevation-1"
     >
       <template slot="items" slot-scope="props" placeholder="asfasdf">
-        <td>{{ props.item.aerolinea }}</td>
-        <td class="text-xs-right">{{ props.item.origen }}</td>
-        <td class="text-xs-right">{{ props.item.destino }}</td>
-        <td class="text-xs-right">{{ props.item.paradas }}</td>
+        <td>{{ props.item.nombre }}</td>
+        <td class="text-xs-right">{{ props.item.celular }}</td>
+        <td class="text-xs-right">{{ props.item.fechaPartida }}</td>
+        <td class="text-xs-right">{{ props.item.fechaRetorno }}</td>
+        <td class="text-xs-right">{{ props.item.ciudadPartida }}</td>
+        <td class="text-xs-right">{{ props.item.ciudadLlegada }}</td>
+        <td class="text-xs-right">{{ props.item.escala }}</td>
       </template>
       <template slot="no-data">
-          Para los paises seleccionados no existen rutas disponibles.
+          No existen registros de vuelos deseados.
       </template>
     </v-data-table>
 
@@ -173,6 +165,7 @@
 <script>
 import getCities from '@/services/getCities'
 import postForm from '@/services/postForm'
+import getForm from '@/services/getForm'
 export default {
   data () {
     return {
@@ -183,24 +176,39 @@ export default {
       destinoSeleccionado: '',
       headers: [
         {
-          text: 'Aerolinea',
+          text: 'Nombre completo',
           align: 'left',
           sortable: false,
-          value: 'name'
+          value: 'nombre'
         },
         {
-          text: 'Origen',
-          value: 'origen',
+          text: 'Celular',
+          value: 'celular',
           sortable: false
         },
         {
-          text: 'Destino',
-          value: 'destino',
+          text: 'Fecha de partida',
+          value: 'fechaPartida',
           sortable: false
         },
         {
-          text: 'Paradas',
-          value: 'paradas',
+          text: 'Fecha de retorno',
+          value: 'fechaRetorno',
+          sortable: false
+        },
+        {
+          text: 'Ciudad de partida',
+          value: 'ciudadPartida',
+          sortable: false
+        },
+        {
+          text: 'Ciudad de llegada',
+          value: 'ciudadLlegada',
+          sortable: false
+        },
+        {
+          text: 'Escala',
+          value: 'escala',
           sortable: false
         }
       ],
@@ -208,29 +216,65 @@ export default {
       nombres: '',
       celular: '',
       fechaPartida: null,
-      fechaRetorno: null
+      fechaRetorno: null,
+      escala: false
     }
   },
   created: async function () {
+    // Se cargan los registros guardados
+    this.updateForm()
+
+    // Se cargan las ciudades
     var response = await getCities.getCities()
     for (var i = 0; i < response.data.length; i++) {
-      if (response.data[i] === '') {
-        console.log('espacios')
-      } else {
+      if (response.data[i] !== '') {
         this.paises.push(response.data[i])
       }
     }
     this.paises.sort()
   },
   methods: {
-    async obtenerRutas () {
-      console.log(this.nombres)
-      console.log(this.celular)
+    async guardarRegistro () {
+      var escala = 'No'
+      if (this.escala) {
+        escala = 'Sí'
+      }
       var response = await postForm.postForm({
         nombre: this.nombres,
-        celular: this.celular
+        celular: this.celular,
+        fechaPartida: this.fechaPartida,
+        fechaRetorno: this.fechaRetorno,
+        ciudadPartida: this.origenSeleccionado,
+        ciudadLlegada: this.destinoSeleccionado,
+        escala: escala
       })
-      console.log(response)
+
+      if (response != null) {
+        this.nombres = ''
+        this.celular = ''
+        this.fechaPartida = null
+        this.fechaRetorno = null
+        this.origenSeleccionado = ''
+        this.destinoSeleccionado = ''
+        this.opcionSeleccionada = ''
+        this.updateForm()
+      }
+    },
+    async updateForm () {
+      this.items = []
+      var response = await getForm.getForm()
+      console.log(response.data)
+      for (var i = 0; i < response.data.length; i++) {
+        this.items.push({
+          nombre: response.data[i].nombre,
+          celular: response.data[i].celular,
+          fechaPartida: response.data[i].fechaPartida,
+          fechaRetorno: response.data[i].fechaRetorno,
+          ciudadPartida: response.data[i].ciudadPartida,
+          ciudadLlegada: response.data[i].ciudadLlegada,
+          escala: response.data[i].escala
+        })
+      }
     }
   }
 }

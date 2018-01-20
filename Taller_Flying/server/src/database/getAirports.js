@@ -55,6 +55,17 @@ var routesSchemaJSON = {
 	equipment: String
 }
 
+// Se define el esquema de un registro ingresado por un usuario
+var formSchema = {
+  nombre: String,
+  celular:String,
+  fechaPartida:String,
+  fechaRetorno:String,
+  ciudadPartida:String,
+  ciudadLlegada:String,
+  escala: String
+}
+
 // Se crea el esquema de un aeropuerto
 var airportsSchema = new Schema(airportsSchemaJSON)
 
@@ -72,6 +83,9 @@ var airline = mongoose.model("airline", airlinesSchema)
 
 // Se crea el modelo de una ruta
 var route = mongoose.model("route", routesSchema)
+
+// Se crea el modelo de un registro
+var form = mongoose.model("form", formSchema)
 
 // Devuelve los paises
 function getCountries(){
@@ -207,7 +221,27 @@ function getAirlinesDetails(id){
   })
 }
 
+function postForms(data){
+  return new Promise((resolve, reject) =>{
+    form.create(data, function (err, small) {
+      if(err){
+        return reject(err)
+      }
+      return resolve("Guardado")
+    })
+  })
+}
 
+function getForms(){
+  return new Promise((resolve, reject) =>{
+    form.find({},function(err,forms){
+      if(err){
+        return reject(err);
+      }
+      return resolve(forms)
+    })
+  })
+}
 
 // Se anade la función que va a devolver este .js
 module.exports = {
@@ -227,5 +261,11 @@ module.exports = {
   getCities: function(){
     return getCities()
   },
+  postForms: function(form){
+    return postForms(form)
+  },
+  getForms: function(){
+    return getForms()
+  }
 
 }
