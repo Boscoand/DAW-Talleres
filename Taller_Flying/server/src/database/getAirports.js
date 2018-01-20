@@ -73,10 +73,22 @@ var airline = mongoose.model("airline", airlinesSchema)
 // Se crea el modelo de una ruta
 var route = mongoose.model("route", routesSchema)
 
-// Devuelve las ciudades 
+// Devuelve los paises
 function getCountries(){
   return new Promise( (resolve, reject) => {
     airport.find().distinct('country', function(err, country) {
+      if(err){
+        return reject(err);
+      }
+      return resolve(country);
+    });
+  })
+}
+
+// Devuelve las ciudades
+function getCities(){
+  return new Promise( (resolve, reject) => {
+    airport.find().distinct('city', function(err, country) {
       if(err){
         return reject(err);
       }
@@ -211,6 +223,9 @@ module.exports = {
   },
   getIata: function(pais){
     return getIata(pais)
-  }
+  },
+  getCities: function(){
+    return getCities()
+  },
 
 }

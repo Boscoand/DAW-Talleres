@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import flying from '@/components/Flying'
-import register from '@/components/register'
+import flyingForms from '@/components/flyingForms'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: flying
     },
     {
-      path: '/register',
-      name: 'register',
-      component: register
+      path: '/forms',
+      name: 'flyingForms',
+      component: flyingForms
     }
   ]
 })
