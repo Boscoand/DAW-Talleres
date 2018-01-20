@@ -57,8 +57,10 @@ let data = []
 // Ingresar deseos de usuarios
 app.post('/postForm', (req, res) => {
 
-	data.push({"nombre": req.query.nombres, "celular": req.query.celular})
-	console.log(data)
+	const {nombre, celular} = req.body
+
+	data.push({"nombre": nombre, "celular": celular})
+	console.log(req.body)
 	res.end("yes")
 })
 
