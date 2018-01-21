@@ -79,6 +79,17 @@ app.get('/getIata', (req, res) => {
 
 })
 
+// Actualizar deseos de usuarios
+app.put('/putForm', (req, res) => {
+console.log(req.body)
+	airports.putForms(req.body[0],req.body[1]).then(result => {
+		console.log(req.body)
+		res.send(result)	
+	})
+	// const {nombre, celular} = req.body
+
+})
+
 app.listen(process.env.PORT || 8081)
 
 // axios. Libreria que va en el front y sirve para hacer solicitudas http
