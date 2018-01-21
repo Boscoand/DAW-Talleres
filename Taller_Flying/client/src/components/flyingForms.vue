@@ -142,10 +142,20 @@
     <v-data-table
       v-bind:headers="headers"
       :items="items"
+      :search="search"
+      v-model="selected"
+      item-key="name"
       hide-actions
       class="elevation-1"
     >
       <template slot="items" slot-scope="props" placeholder="asfasdf">
+         <td>
+          <v-checkbox
+            primary
+            hide-details
+            v-model="props.selected"
+          ></v-checkbox>
+        </td>
         <td>{{ props.item.nombre }}</td>
         <td class="text-xs-right">{{ props.item.celular }}</td>
         <td class="text-xs-right">{{ props.item.fechaPartida }}</td>
@@ -213,6 +223,8 @@ export default {
         }
       ],
       items: [],
+      search: '',
+      selected: [],
       nombres: '',
       celular: '',
       fechaPartida: null,
