@@ -176,7 +176,6 @@
           No existen registros de vuelos deseados.
       </template>
     </v-data-table>
-    {{this.selected}}
   </v-container>
 </template>
 
@@ -266,11 +265,11 @@ export default {
   },
   methods: {
     async guardarRegistro () {
+      var escala = 'No'
+      if (this.escala) {
+        escala = 'Sí'
+      }
       if (this.disabled === true) {
-        var escala = 'No'
-        if (this.escala) {
-          escala = 'Sí'
-        }
         var response = await postForm.postForm({
           nombre: this.nombres,
           celular: this.celular,
@@ -280,7 +279,6 @@ export default {
           ciudadLlegada: this.destinoSeleccionado,
           escala: escala
         })
-
         if (response != null) {
           this.nombres = ''
           this.celular = ''
@@ -303,14 +301,15 @@ export default {
         })
 
         if (respons != null) {
-          this.nombres = ''
-          this.celular = ''
+          this.nombres = '  '
+          this.celular = ' '
           this.fechaPartida = null
           this.fechaRetorno = null
           this.origenSeleccionado = ''
           this.destinoSeleccionado = ''
           this.opcionSeleccionada = ''
           this.selected = []
+          this.escala = false
           this.enableModification()
           this.updateForm()
         }
@@ -334,13 +333,17 @@ export default {
     },
     async modifyForm () {
       var registro = this.selected[0]
+      var escala = false
+      if (registro['escala'] === 'Sí') {
+        escala = true
+      }
       this.nombres = registro['nombre']
       this.celular = registro['celular']
       this.fechaPartida = registro['fechaPartida']
       this.fechaRetorno = registro['fechaRetorno']
       this.origenSeleccionado = registro['ciudadPartida']
       this.destinoSeleccionado = registro['ciudadLlegada']
-      this.escala = registro['escala']
+      this.escala = escala
     },
     enableModification () {
       if (this.selected.length === 1) {
