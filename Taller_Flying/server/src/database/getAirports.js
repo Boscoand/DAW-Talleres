@@ -1,7 +1,8 @@
 // Importar csv a mongo:
-// mongoimport -d flying -c airports --type csv --file C:\Users\Jaminson\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\airports.csv --headerline
-// mongoimport -d flying -c routes --type csv --file C:\Users\Jaminson\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\routes.csv --headerline
-// mongoimport -d flying -c airlines --type csv --file C:\Users\Jaminson\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\airlines.csv --headerline
+// mongoimport -d flying -c airports --type csv --file D:\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\airports-clean.dat --headerline
+// mongoimport -d flying -c routes --type csv --file D:\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\routes-clean.dat --headerline
+// mongoimport -d flying -c airlines --type csv --file D:\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\airlines.dat --headerline
+// mongoimport -d flying -c form --type csv --file D:\Documents\GitHub\DAW-Talleres\Taller_Flying\server\assets\data\forms.csv --headerline
 
 
 var mongoose = require('mongoose')
@@ -243,6 +244,17 @@ function getForms(){
   })
 }
 
+function putForms(olddata, newdata){
+  return new Promise((resolve, reject) =>{
+    form.updateOne(olddata,newdata, function (err, small) {
+      if(err){
+        return reject(err)
+      }
+      return resolve("Guardado")
+    })
+  })
+}
+
 // Se anade la función que va a devolver este .js
 module.exports = {
 
@@ -266,6 +278,9 @@ module.exports = {
   },
   getForms: function(){
     return getForms()
+  },
+  putForms: function(olddata,newdata){
+    return putForms(olddata,newdata)
   }
 
 }
