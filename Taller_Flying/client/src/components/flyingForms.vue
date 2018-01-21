@@ -17,7 +17,7 @@
         <v-subheader>Nombres completos</v-subheader>
       </v-flex>
       <v-flex xs7>
-        <v-text-field v-model='nombres'></v-text-field>
+        <v-text-field v-model='nombres' :rules="[rules.required]"></v-text-field>
       </v-flex>
     </v-layout>
 
@@ -28,7 +28,7 @@
         <v-subheader>Número celular </v-subheader>
       </v-flex>
       <v-flex xs7>
-        <v-text-field v-model='celular'></v-text-field>
+        <v-text-field v-model='celular' :rules="[rules.required]"></v-text-field>
       </v-flex>
     </v-layout>
 
@@ -43,6 +43,7 @@
           label='Seleccionar origen'
           v-bind:items='paises'
           item-value='text'
+          v-bind:error-messages="['Por favor seleccione una opcion']"
           single-line
           bottom
         ></v-select>
@@ -59,6 +60,7 @@
           label='Seleccionar destino'
           v-bind:items='paises'
           item-value='text'
+          v-bind:error-messages="['Por favor seleccione una opcion']"
           single-line
           bottom
         ></v-select>
@@ -82,6 +84,7 @@
             slot='activator'
             label='Fecha de partida'
             v-model='fechaPartida'
+            :rules="[rules.required]"
             prepend-icon='event'
             readonly
           ></v-text-field>
@@ -112,6 +115,7 @@
             slot='activator'
             label='Fecha de retorno'
             v-model='fechaRetorno'
+            :rules="[rules.required]"
             prepend-icon='event'
             readonly
           ></v-text-field>
@@ -184,6 +188,9 @@ import putForm from '@/services/putForm'
 export default {
   data () {
     return {
+      rules: {
+        required: (value) => !!value || 'Required.'
+      },
       paises: [],
       opciones: ['Vuelo directo', 'Vuelo con escalas'],
       opcionSeleccionada: '',
