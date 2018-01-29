@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title Práctica: Campos Ocultos
+    script(type='text/javascript').
+      if (foo) bar(1 + 5)
+  body
+    h1 Página 2
+    #table-wrapper
+    table#desc
+      table
+        tr
+          td Usuario: #{usuario}
+        tr
+          td Contraseña: #{contrasenia}
+        tr
+
+register
+        form(method='POST' action='/controlador2/')
+          div.form-group
+            label(for='name') Valor 1:
+            input#user_valor1.form-control(type='text', placeholder='' name='user_valor1')
+          div.form-group
+            label(for='name') Valor 2:
+            input#user_valor2.form-control(type='text', placeholder='' name='user_valor2')
+          button.btn.btn-primary(type='submit') Calcular
